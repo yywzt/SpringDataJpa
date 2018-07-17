@@ -3,6 +3,7 @@ package com.example.controller;
 import com.example.entity.UserInf;
 import com.example.repository.UserInfRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,5 +24,10 @@ public class UserInfController {
     @RequestMapping("/all")
     public List<UserInf> findAll(){
         return userInfRepository.findAll();
+    }
+
+    @RequestMapping("/delete/{id}")
+    public void deleteById(@PathVariable Long id){
+        userInfRepository.deleteById(id);
     }
 }
