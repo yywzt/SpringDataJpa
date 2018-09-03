@@ -67,9 +67,9 @@ public class RolesController {
         rolesRepository.deleteById(id);
     }
 
-    @RequestMapping("/delete/{roleCode}")
+    /*@RequestMapping("/delete/{roleCode}")
     public void deleteByRoleCode(@PathVariable String roleCode){
         rolesRepository.deleteByRoleCode(roleCode);
-    }
+    }*/
 
 }
