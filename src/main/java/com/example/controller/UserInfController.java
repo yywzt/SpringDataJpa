@@ -32,8 +32,8 @@ public class UserInfController {
         userInfRepository.deleteById(id);
     }
 
-    @RequestMapping("/{id}")
+    /*@RequestMapping("/{id}")
     public Optional<UserInf> selectById(@PathVariable Long id){
         return userInfRepository.findById(id);
-    }
+    }*/
 }
