@@ -40,7 +40,7 @@ spring:
 debug: true
 
 server:
-  port: 18081
+  port: 18080
 
 ---
 spring:
