@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author yanzt
@@ -29,5 +30,10 @@ public class UserInfController {
     @RequestMapping("/delete/{id}")
     public void deleteById(@PathVariable Long id){
         userInfRepository.deleteById(id);
+    }
+
+    @RequestMapping("/{id}")
+    public Optional<UserInf> selectById(@PathVariable Long id){
+        return userInfRepository.findById(id);
     }
 }
