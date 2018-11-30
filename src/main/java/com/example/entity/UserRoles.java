@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table(name = "user_roles")
-public class UserRoles extends BaseEntity implements Serializable {
+public class UserRoles extends BaseEntity<Long> implements Serializable {
 
     @Column(name = "user_id")
     private Long userId;

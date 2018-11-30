@@ -14,7 +14,7 @@ import java.util.Set;
 @Data
 @Entity
 @Table(name = "user_inf")
-public class UserInf extends BaseEntity implements Serializable {
+public class UserInf extends BaseEntity<Long> implements Serializable {
 
     @Column(name = "uname")
     private String username;
