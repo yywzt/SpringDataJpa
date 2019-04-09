@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: dev
+    active: prod
 
 ---
 spring:
@@ -85,7 +85,7 @@ spring:
   jpa:
     properties:
       hibernate:
-        format_sql: true
+#        format_sql: true
 #    show-sql: true
 
 debug: true
