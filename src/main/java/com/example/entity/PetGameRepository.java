@@ -1,4 +1,4 @@
-package com.bying.car.model.petGame;
+package com.example.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;

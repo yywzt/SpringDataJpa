@@ -3,6 +3,7 @@ package com.example.entity;
 
 import org.springframework.beans.factory.annotation.Value;
 
+import javax.persistence.Column;
 import java.util.Date;
 
 /**
@@ -12,14 +13,17 @@ import java.util.Date;
  */
 public interface PetGameRepositoryVo2 {
 
-    @Value("#{target.createDate + ' '}")
-    String getCreateDate();
+    Date getCreateDate();
 
-    @Value("#{target.channelId + ' '}")
     String getChannelId();
 
-    @Value("#{target.shopGoodNumber + ' '}")
-    String getShopGoodNumber();
+    Integer getShopGoodNumber();
+
+    String getGoodsCode();
+
+    String getGoodsName();
+
+    String getGoodsDesc();
 
     @Value("#{target.shopGoodNumber + ' ' + target.channelId}")
     String getFullName();

@@ -1,5 +1,6 @@
 package com.example;
 
+import com.example.dto.PetGameRepositoryDto;
 import com.example.entity.PetGameRepositoryVo;
 import com.example.entity.PetGameRepositoryVo2;
 import com.example.entity.TestVo;
@@ -26,7 +27,7 @@ public class ExampleApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		/*List<TestVo> testVos = testRepository.findbyType();
+		List<TestVo> testVos = testRepository.findbyType();
 		testVos.forEach(testVo -> {
 			System.out.println("name: " + testVo.getName() + "code: " + testVo.getCode() + "descs: " + testVo.getDescs());
 		});
@@ -38,14 +39,16 @@ public class ExampleApplicationTests {
 		});
 		System.out.println(testVos);
 
+		System.out.println("---------------findAllRepositoryByChannelIdAndUid-----------------");
 		String channelId = "AA1090";
 		Long uid = Long.valueOf("854533803434188800");
 		List<PetGameRepositoryVo> byType = petGameRepositoryRepository.findAllRepositoryByChannelIdAndUid(channelId, 1L, uid);
 		byType.forEach(petGameRepositoryVo -> {
 			System.out.println("desc: " + petGameRepositoryVo.getGoodsDesc() + "goodsCode: " + petGameRepositoryVo.getGoodsCode() + "goodNumber: " + petGameRepositoryVo.getShopGoodNumber());
 		});
-		System.out.println(byType);*/
+		System.out.println(byType);
 
+		System.out.println("---------------findSome-----------------");
 		List<PetGameRepositoryVo2> some = petGameRepositoryRepository.findSome();
 		some.forEach(petGameRepositoryVo -> {
 			System.out.println("fullName: " + petGameRepositoryVo.getFullName());
@@ -54,6 +57,33 @@ public class ExampleApplicationTests {
 			System.out.println("createDate: " + petGameRepositoryVo.getCreateDate());
 		});
 		System.out.println(some);
+
+		System.out.println("---------------findSome2-----------------");
+		List<PetGameRepositoryDto> some2 = petGameRepositoryRepository.findSome2();
+		some2.forEach(petGameRepositoryVo -> {
+			System.out.println("channelId: " + petGameRepositoryVo.getChannelId());
+			System.out.println("shopGoodNumber: " + petGameRepositoryVo.getShopGoodNumber());
+			System.out.println("createDate: " + petGameRepositoryVo.getCreateDate());
+		});
+		System.out.println(some2);
+
+		System.out.println("---------------findInnerSome-----------------");
+		some = petGameRepositoryRepository.findInnerSome();
+		some.forEach(petGameRepositoryVo -> {
+			System.out.println("channelId: " + petGameRepositoryVo.getChannelId());
+			System.out.println("shopGoodNumber: " + petGameRepositoryVo.getShopGoodNumber());
+			System.out.println("createDate: " + petGameRepositoryVo.getCreateDate());
+		});
+		System.out.println(some);
+
+		System.out.println("---------------findInnerSome2-----------------");
+		some2 = petGameRepositoryRepository.findInnerSome2();
+		some2.forEach(petGameRepositoryVo -> {
+			System.out.println("channelId: " + petGameRepositoryVo.getChannelId());
+			System.out.println("shopGoodNumber: " + petGameRepositoryVo.getShopGoodNumber());
+			System.out.println("createDate: " + petGameRepositoryVo.getCreateDate());
+		});
+		System.out.println(some2);
 	}
 
 }
