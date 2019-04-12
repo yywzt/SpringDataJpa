@@ -11,13 +11,13 @@ public class PetGameRepository  implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "create_date")
+	@Column(name = "create_date",updatable = false)
 	private java.util.Date createDate;
 
 	@Column(name = "modify_date")
 	private java.util.Date modifyDate;
 
-	@Column(name = "enable_status")
+	@Column(name = "enable_status",columnDefinition = "int default 0")
 	private Integer enableStatus;
 
 	@Column(name = "shop_good_id")
@@ -95,4 +95,17 @@ public class PetGameRepository  implements Serializable {
 		this.uid = uid;
 	}
 
+	@Override
+	public String toString() {
+		return "PetGameRepository{" +
+				"id=" + id +
+				", createDate=" + createDate +
+				", modifyDate=" + modifyDate +
+				", enableStatus=" + enableStatus +
+				", shopGoodId=" + shopGoodId +
+				", shopGoodNumber=" + shopGoodNumber +
+				", channelId='" + channelId + '\'' +
+				", uid=" + uid +
+				'}';
+	}
 }

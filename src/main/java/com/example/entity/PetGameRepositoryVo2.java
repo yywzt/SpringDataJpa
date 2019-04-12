@@ -25,6 +25,8 @@ public interface PetGameRepositoryVo2 {
 
     String getGoodsDesc();
 
+    Long getShopGoodId();
+
     @Value("#{target.shopGoodNumber + ' ' + target.channelId}")
     String getFullName();
 

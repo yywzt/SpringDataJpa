@@ -1,6 +1,7 @@
 package com.example;
 
 import com.example.dto.PetGameRepositoryDto;
+import com.example.entity.PetGameRepository;
 import com.example.entity.PetGameRepositoryVo;
 import com.example.entity.PetGameRepositoryVo2;
 import com.example.entity.TestVo;
@@ -11,6 +12,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -42,7 +46,7 @@ public class ExampleApplicationTests {
 		System.out.println("---------------findAllRepositoryByChannelIdAndUid-----------------");
 		String channelId = "AA1090";
 		Long uid = Long.valueOf("854533803434188800");
-		List<PetGameRepositoryVo> byType = petGameRepositoryRepository.findAllRepositoryByChannelIdAndUid(channelId, 1L, uid);
+		List<PetGameRepositoryVo> byType = petGameRepositoryRepository.findAllRepositoryByChannelIdAndUid(channelId, 1, uid);
 		byType.forEach(petGameRepositoryVo -> {
 			System.out.println("desc: " + petGameRepositoryVo.getGoodsDesc() + "goodsCode: " + petGameRepositoryVo.getGoodsCode() + "goodNumber: " + petGameRepositoryVo.getShopGoodNumber());
 		});
@@ -84,6 +88,41 @@ public class ExampleApplicationTests {
 			System.out.println("createDate: " + petGameRepositoryVo.getCreateDate());
 		});
 		System.out.println(some2);
+	}
+
+	@Test
+	public void test1(){
+		System.out.println("---------------findAllRepositoryByChannelIdAndUid-----------------");
+		String channelId = "AA1090";
+		Long uid = Long.valueOf("854533803434188800");
+		List<PetGameRepositoryVo> byType = petGameRepositoryRepository.findAllRepositoryByChannelIdAndUid2(channelId, 1, uid);
+		byType.forEach(petGameRepositoryVo -> {
+			System.out.println("desc: " + petGameRepositoryVo.getGoodsDesc() + "goodsCode: " + petGameRepositoryVo.getGoodsCode() + "goodNumber: " + petGameRepositoryVo.getShopGoodNumber());
+		});
+		System.out.println(byType);
+	}
+	@Test
+	public void test1Page(){
+		System.out.println("---------------findAllRepositoryByChannelIdAndUid-----------------");
+		String channelId = "AA1090";
+		Long uid = Long.valueOf("854533803434188800");
+		PageRequest pageRequest = new PageRequest(0,8);
+		Page<PetGameRepositoryVo> byType = petGameRepositoryRepository.findAllRepositoryByChannelIdAndUid2Page(channelId, 1, uid,pageRequest);
+		System.out.println(byType.getNumber());
+		System.out.println(byType.getTotalPages());
+		System.out.println(byType.getTotalElements());
+		System.out.println(byType.getSize());
+		System.out.println(byType.getContent());
+		System.out.println(byType.getContent().size());
+	}
+
+	@Test
+	public void test2(){
+		PetGameRepository petGameRepository = new PetGameRepository();
+		PetGameRepository one = petGameRepositoryRepository.findOne(1L);
+		one.setShopGoodNumber(one.getShopGoodNumber() + 1);
+		petGameRepositoryRepository.save(one);
+		System.out.println(petGameRepository);
 	}
 
 }
