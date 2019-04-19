@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.TestVo;
 import com.example.entity.PetGameChapter;
 import com.example.entity.Test;
 import com.example.repository.PetGameChapterRepository;
@@ -22,22 +23,35 @@ public class TestController {
     @Autowired
     private TestRepository testRepository;
 
-    @Autowired
-    private PetGameChapterRepository petGameChapterRepository;
 
-    @RequestMapping("/test1")
-    public List<Test> test1(){
-        List<Test> allTest = testRepository.findAllTest();
+    @RequestMapping("/findbyType")
+    public List<TestVo> findbyType(){
+        List<TestVo> allTest = testRepository.findbyType();
         return allTest;
     }
-    @RequestMapping("/test2")
-    public List<Test> test2(){
-        List<Test> allTest = testRepository.findAllTest2();
+    @RequestMapping("/findbyType2")
+    public List<TestVo> findbyType2(){
+        List<TestVo> allTest = testRepository.findbyType2();
         return allTest;
     }
-    @RequestMapping("/test3")
-    public List<PetGameChapter> test3(){
-        List<PetGameChapter> allTest = petGameChapterRepository.getPetGameChapterNameAndCode("AA1000",1,1);
+    @RequestMapping("/findAllTest")
+    public List<TestVo> test1(){
+        List<TestVo> allTest = testRepository.findAllTest();
+        return allTest;
+    }
+    @RequestMapping("/findAllTest2")
+    public List<TestVo> test2(){
+        List<TestVo> allTest = testRepository.findAllTest2();
+        return allTest;
+    }
+    @RequestMapping("/findAllTest3")
+    public List<TestVo> findAllTest3(){
+        List<TestVo> allTest = testRepository.findAllTest3();
+        return allTest;
+    }
+    @RequestMapping("/findAllTest4")
+    public List<Test> findAllTest4(){
+        List<Test> allTest = testRepository.findAllTest4();
         return allTest;
     }
 }

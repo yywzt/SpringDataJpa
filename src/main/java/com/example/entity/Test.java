@@ -16,8 +16,4 @@ public class Test  implements Serializable {
 
 	private String descs;
 
-	Test(String descs) {
-		this.descs = descs;
-	}
-
 }

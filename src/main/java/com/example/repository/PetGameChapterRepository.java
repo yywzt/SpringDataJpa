@@ -17,6 +17,9 @@ public interface PetGameChapterRepository extends JpaRepository<PetGameChapter,L
 
     List<PetGameChapter> findByChannelIdAndEnableStatusOrderByCreateDateDesc(String channelId,Integer enableStatus);
 
+    /**
+     * 会报错 错误信息-找不到某个字段
+     * */
     @Query(value = "SELECT id,chapter_name,chapter_version,chapter_desc,game_version FROM pet_game_chapter WHERE channel_id=:channelId and enable_status=:enableStatus and disabled_flag=:disabledFlag",nativeQuery = true)
     List<PetGameChapter> getPetGameChapterNameAndCode(@Param("channelId") String channelId, @Param("enableStatus") Integer enableStatus, @Param("disabledFlag") Integer disabledFlag);
 

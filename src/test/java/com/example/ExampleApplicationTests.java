@@ -4,17 +4,15 @@ import com.example.dto.PetGameRepositoryDto;
 import com.example.entity.PetGameRepository;
 import com.example.entity.PetGameRepositoryVo;
 import com.example.entity.PetGameRepositoryVo2;
-import com.example.entity.TestVo;
+import com.example.dto.TestVo;
 import com.example.repository.PetGameRepositoryRepository;
 import com.example.repository.TestRepository;
-import com.example.repository.UserInfRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -123,6 +121,22 @@ public class ExampleApplicationTests {
 		one.setShopGoodNumber(one.getShopGoodNumber() + 1);
 		petGameRepositoryRepository.save(one);
 		System.out.println(petGameRepository);
+	}
+
+	@Test
+	public void test3(){
+		List<TestVo> testVos = testRepository.findbyType();
+		System.out.println("findbyType: " + testVos);
+		List<TestVo> testVos1 = testRepository.findbyType2();
+		System.out.println("findbyType2: " + testVos1);
+		List<TestVo> allTest = testRepository.findAllTest();
+		System.out.println("findAllTest: " + allTest);
+		List<TestVo> allTest2 = testRepository.findAllTest2();
+		System.out.println("findAllTest2: " + allTest2);
+		List<TestVo> allTest3 = testRepository.findAllTest3();
+		System.out.println("findAllTest3: " + allTest3);
+		List<com.example.entity.Test> allTest4 = testRepository.findAllTest4();
+		System.out.println("findAllTest4: " + allTest4);
 	}
 
 }
