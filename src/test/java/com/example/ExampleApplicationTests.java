@@ -119,7 +119,7 @@ public class ExampleApplicationTests {
 	@Test
 	public void test2(){
 		PetGameRepository petGameRepository = new PetGameRepository();
-		PetGameRepository one = petGameRepositoryRepository.findOne(1L);
+		PetGameRepository one = petGameRepositoryRepository.getOne(1L);
 		one.setShopGoodNumber(one.getShopGoodNumber() + 1);
 		petGameRepositoryRepository.save(one);
 		System.out.println(petGameRepository);

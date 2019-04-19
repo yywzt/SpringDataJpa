@@ -18,7 +18,12 @@ public interface TestRepository extends JpaSpecificationExecutor<Test>,BaseRepos
     @Query(value = "SELECT t.desc as descs,t1.`name` as name,t1.`code` as code from test t INNER JOIN test1 t1 on t.id=t1.test_id",nativeQuery = true)
     public List<TestVo> findbyType();
 
-    @Query(value = "SELECT t1.`name` as name,t1.`code` as code,t.desc as descs from test t INNER JOIN test1 t1 on t.id=t1.test_id",nativeQuery = true)
+    @Query(value = "SELECT t1.`name` as name,t1.`code` as code,t.descs as descs from test t INNER JOIN test1 t1 on t.id=t1.test_id",nativeQuery = true)
     public List<TestVo> findbyType2();
+
+    @Query(value = "select descs from test",nativeQuery = true)
+    public List<Test> findAllTest();
+    @Query(value = "select t.descs from test t",nativeQuery = true)
+    public List<Test> findAllTest2();
 
 }
