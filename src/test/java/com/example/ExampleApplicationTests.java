@@ -16,6 +16,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -117,8 +118,9 @@ public class ExampleApplicationTests {
 	@Test
 	public void test2(){
 		PetGameRepository petGameRepository = new PetGameRepository();
-		PetGameRepository one = petGameRepositoryRepository.getOne(1L);
-		if(one != null) {
+		Optional<PetGameRepository> petGameRepositoryOptional = petGameRepositoryRepository.findById(1L);
+		if(petGameRepositoryOptional.isPresent()) {
+			PetGameRepository one = petGameRepositoryOptional.get();
 			one.setShopGoodNumber(one.getShopGoodNumber() + 1);
 			petGameRepositoryRepository.save(one);
 		}
