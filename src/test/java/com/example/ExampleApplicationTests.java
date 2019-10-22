@@ -1,10 +1,10 @@
 package com.example;
 
 import com.example.dto.PetGameRepositoryDto;
+import com.example.dto.TestVo;
 import com.example.entity.PetGameRepository;
 import com.example.entity.PetGameRepositoryVo;
 import com.example.entity.PetGameRepositoryVo2;
-import com.example.dto.TestVo;
 import com.example.repository.PetGameRepositoryRepository;
 import com.example.repository.TestRepository;
 import org.junit.Test;
@@ -118,8 +118,10 @@ public class ExampleApplicationTests {
 	public void test2(){
 		PetGameRepository petGameRepository = new PetGameRepository();
 		PetGameRepository one = petGameRepositoryRepository.getOne(1L);
-		one.setShopGoodNumber(one.getShopGoodNumber() + 1);
-		petGameRepositoryRepository.save(one);
+		if(one != null) {
+			one.setShopGoodNumber(one.getShopGoodNumber() + 1);
+			petGameRepositoryRepository.save(one);
+		}
 		System.out.println(petGameRepository);
 	}
 
